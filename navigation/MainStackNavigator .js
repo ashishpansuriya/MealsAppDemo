@@ -72,7 +72,8 @@ const MainStackNavigator = () => {
 
           headerRight: () => (
             <Ionicons name="heart-circle" size={32} color={Platform.OS === 'android' ? 'white' : Colors.Pink} onPress={() => {
-              console.log('Mark as Favourite');
+              route.params.toggleFav
+              console.log(route.params.toggleFav);
             }} />
           ),
         })} />

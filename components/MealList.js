@@ -13,7 +13,7 @@ const MealList = props => {
                 imageUrl={itemData.item.imageUrl}
                 onSelectMeal={() => {
                     console.log(itemData.item.id);
-                    props.navigation.navigate('MealsDetail', { mealId: itemData.item.id });
+                    props.navigation.navigate('MealsDetail', { mealId: itemData.item.id , mealTitle : itemData.item.title });
                 }} />
         );
     

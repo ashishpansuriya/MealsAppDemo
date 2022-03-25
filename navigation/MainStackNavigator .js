@@ -59,7 +59,7 @@ const MainStackNavigator = () => {
         component={MealsDetailsScreen}
 
         options={({ route }) => ({
-          title: route.params.title,
+          title: route.params.mealTitle,
           headerStyle: {
             backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.White,
 
@@ -105,11 +105,11 @@ const FavouriteContainer = () => {
       />
 
       <Stack.Screen
-        name="MealsDetail"
+        name="MealsDetails"
         component={MealsDetailsScreen}
 
         options={({ route }) => ({
-          title: route.params.title,
+          title: route.params.mealTitle,
           headerStyle: {
             backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.White,
 

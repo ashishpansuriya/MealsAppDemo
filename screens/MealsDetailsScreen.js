@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { View, StyleSheet, Text, Button, ScrollView, ImageBackground } from "react-native";
-import MealItem from "../components/MealItem.js";
-import { MEALS } from "../data/dummy-data.js";
+import { useSelector } from "react-redux";
 
 const MealsDetailsScreen = props => {
 
     const data = props.route.params;
     const ids = data.mealId;
+    const title = data.mealTitle;
+    const mealData = useSelector(state => state.meals.meals);
+    const selectMeals = mealData.find(meal => meal.id === ids);
 
-    const selectMeals = MEALS.find(meal => meal.id === ids);
+    // useEffect(() => {
+    //     props.navigation.setParams({mealsTitle: selectMeals.title});
+    // }, [selectMeals]);
 
     const ListItem = props => {
         return (<View>
@@ -59,11 +63,6 @@ const styles = StyleSheet.create({
         borderRadius: 20
     },
 
-    mealRow: {
-
-    },
-
-
     mealDetails: {
         flexDirection: 'row',
         paddingHorizontal: 10,
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-
         width: '100%',
         color: '#fff',
         flex: 1,

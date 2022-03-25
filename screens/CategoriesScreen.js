@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, SafeAreaView } from "react-native";
+import { FlatList } from "react-native";
 import GridItem from "../components/GridItem";
 import { CATEGORIES } from "../data/dummy-data.js";
 

@@ -2,24 +2,34 @@ import React, { useEffect, useCallback } from "react";
 
 import { View, StyleSheet, Text, ScrollView, ImageBackground } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import { toggleFavourite } from "../store/actions/meals";
+
 
 const MealsDetailsScreen = props => {
 
+
+    const mealData = useSelector(state => state.meals.meals);
     const data = props.route.params;
     const ids = data.mealId;
-    const mealData = useSelector(state => state.meals.meals);
+    
     const selectMeals = mealData.find(meal => meal.id === ids);
-
-    const dispa = useDispatch();
+    const isCurrentMealFav = useSelector(state => state.meals.favouriteMeals.some(meal => meal.id === ids)); 
+    const dispatch = useDispatch();
 
     const toggleFavouriteHandler = useCallback(() => {
-        dispa(toggleFavourite(ids));
-    }, [dispa, ids]);
+  
+        dispatch(toggleFavourite(ids));
+    }, [dispatch, ids]);
 
     useEffect(() => {
-        props.navigation.setParams({ toggleFav: toggleFavouriteHandler });
+        console.log(toggleFavouriteHandler);
+        props.navigation.setParams({toggleFav: toggleFavouriteHandler });
     }, [toggleFavouriteHandler]);
 
+    useEffect(() => {
+        props.navigation.setParams({isFav: isCurrentMealFav });
+    }, [isCurrentMealFav]);
+    
     const ListItem = props => {
         return (<View>
             <Text style={styles.simple}>

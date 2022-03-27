@@ -71,10 +71,9 @@ const MainStackNavigator = () => {
           },
 
           headerRight: () => (
-            <Ionicons name="heart-circle" size={32} color={Platform.OS === 'android' ? 'white' : Colors.Pink} onPress={() => {
-              route.params.toggleFav
-              console.log(route.params.toggleFav);
-            }} />
+            <Ionicons name={route.params.isFav ? "heart-circle" : "heart-circle-outline"}
+
+              size={32} color={Platform.OS === 'android' ? 'black' : Colors.Pink} onPress={route.params.toggleFav} />
           ),
         })} />
     </Stack.Navigator>
@@ -123,7 +122,7 @@ const FavouriteContainer = () => {
 
           headerRight: () => (
             <Ionicons name="heart-circle" size={32} color={Platform.OS === 'android' ? 'gray' : Colors.Pink} onPress={() => {
-              
+              route.params.toggleFav
             }} />
           ),
         })} />

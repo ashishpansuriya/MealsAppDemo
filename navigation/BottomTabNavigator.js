@@ -16,7 +16,7 @@ const BottomTabNavigator = () => {
                 ),
             }} />
 
-            <Tab.Screen name="Favourite" component={FavouriteContainer} options={{
+            <Tab.Screen name="Favourites" component={FavouriteContainer} options={{
                 tabBarIcon: ({ color }) => (
                     <MaterialCommunityIcons name="heart" color={color} size={26} />
                 ),
